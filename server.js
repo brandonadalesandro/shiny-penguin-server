@@ -1,11 +1,13 @@
 var http = require("http");
+function start() {
+    function onRequest(request, response) {
+        response.writeHead(200, {"Content-Type": "text/plain"});
+        response.write("Hello World");
+        response.end();
+    }
 
-function onRequest(request, response) {
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.write("Hello World");
-    response.end();
+    http.createServer(onRequest).listen(7777);
+    console.log("server has started...");
 }
 
-http.createServer(onRequest).listen(7777);
-
-console.log("server has started...");
+exports.start = start
