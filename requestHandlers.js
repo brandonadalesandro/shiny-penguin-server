@@ -31,6 +31,9 @@ function upload(response, request) {
 
         /* possible error windows systems tries to rename to an 
             already existing file */
+        // TODO get a hash of this file
+        // TODO store the hash in a db
+        // TODO give the user a unique link to this file
         fs.rename(files.upload.path, "/tmp/test.png", function(error) {
             if (error) {
                 fs.unlink("/tmp/test.png");
